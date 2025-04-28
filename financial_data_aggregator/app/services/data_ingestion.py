@@ -43,8 +43,37 @@ class IngestResponse(BaseModel):
     timestamp: str = Field(default_factory=lambda: datetime.now().isoformat())
     assets_updated: List[str]
 
+# In app/services/data_ingestion.py
 class DataIngestionService:
+    """Service for ingesting financial data from various sources."""
+    
     def __init__(self):
+        # Initialize any required resources
         pass
+        
+    async def initialize(self):
+        """Initialize any resources needed for data ingestion."""
+        # Initialize connection pools, caches, etc.
+        print("Data ingestion service initialized")
+        return True
+    
+    def ingest_data(self, source, parameters=None):
+        """Ingest data from the specified source"""
+        # Implementation
+        pass
+    
+    def get_all_assets(self):
+        # Return a list of all assets
+        return self.assets
+        
+    def get_asset(self, symbol):
+        # Return the asset by symbol
+        return self.assets.get(symbol)
+    
+    async def _fetch_asset_data(self, symbol):
+        # Fetch and process asset data
+        pass
+    
 
-data_service = DataIngestionService()  # Ensure this is properly initialized
+# Create an instance of the service
+data_service = DataIngestionService()
